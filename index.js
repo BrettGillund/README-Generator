@@ -1,6 +1,6 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-const fs = require('fsfs');
+const fs = require('fs');
 // TODO: Create an array of questions for user input
 const questions = ['What would you like the title of the prokject to be?',
     'Please provide a description of the applicaiton.',
@@ -50,9 +50,10 @@ const questions = ['What would you like the title of the prokject to be?',
             name: 'gitHub',
             message: 'What is your GitHub profile URL?'
         }
-    ]).then((data) =>{
-        console.log(data);
-    })
+    ]).then((data) => {
+        fs.writeFile(`${data.title}.md`, `${data}`, (error) =>
+        error ? console.error(error) : console.log('Success!'))
+    });
 
 
 
