@@ -16,90 +16,105 @@ const questions = ['What would you like the title of the prokject to be?',
     'Please provide your GitHub link',
     'Please provide your email adress.'];
 
-
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {
+// prompts for the user to fill in.
     inquirer.prompt([
         {
             name: 'title',
-            message: 'What would you like the title of the prokject to be?'
+            message: `${questions[0]}`
         },
         {
             name: 'description',
-            message: 'Please provide a description of the applicaiton.'
+            message: `${questions[1]}`
+        },
+        {
+            name: 'tableOfContents',
+            message: `${questions[2]}`
         },
         {
             name: 'installation',
-            message: 'Please provide installation requirements'
+            message: `${questions[3]}`
         },
         {
             name: 'usage',
-            message: 'Please provide intended usage'
+            message: `${questions[4]}`
         },
         {
             type: 'list',
             name: 'license',
-            message: 'Please choose license type:',
+            message: `${questions[5]}`,
             choices: ['', '', '', '', 'none']
         },
         {
             name: 'contributors',
-            message: 'Please included a list of contributors.'
+            message: `${questions[6]}`
         },
         {
             name: 'testData',
-            message: 'Please include test data.'
+            message: `${questions[7]}`
         },
         {
             name: 'email',
-            message: 'What is your email?'
+            message: `${questions[8]}`
         },
         {
             name: 'gitHub',
-            message: 'What is your GitHub profile URL?'
+            message: `${questions[9]}`
         }
-    ]).then((data) =>
+    ]).then((data) => // the format of the written README document.
         `# Title
 
         ${data.title}
         
-        # Description
+        ## Description
         
         ${data.description}
+
+        ## Table of Contents
         
-        # Installation
+        ${data.tableOfContents}
+        
+        ## Installation
         
         ${data.installation}
         
-        # Usage
+        ## Usage
         
         ${data.usage}
         
-        # License
+        ## License
         
         ${data.license}
         
-        # Contributors
+        ## Contributors
         
         ${data.contributors}
         
-        # Test Data
+        ## Test Data
         
         ${data.testData}
         
-        # Questions
+        ## Questions
         
         ${data.email}        
         ${data.gitHub}`
 
-    ).then((fileName) => {
-        fs.writeFile(`${fileName.title}.md`, `${fileName}`, (error) =>
+    ).then((fileName) => { // creates the file and sets up the user in case there is an error.
+        fs.writeFile(`README.md`, `${fileName}`, (error) =>
         error ? console.error(error) : console.log('Success!'))
     });
+
+
+
+// TODO: Create a function to write README file
+function writeToFile(fileName, data) {
+
 }
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    // what do they mean by initalizing the application?
+    writeToFile;
+}
 
 // Function call to initialize app
 init();
