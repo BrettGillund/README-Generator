@@ -6,7 +6,7 @@ const genMarkDown = require('./Develop/utils/generateMarkdown');
 
 
 // TODO: Create an array of questions for user input
-const questions = ['What would you like the title of the prokject to be?',
+const questions = ['What would you like the title of the project to be?',
     'Please provide a description of the applicaiton.',
     'Please provide installation requirements',
     'Please provide intended usage',
